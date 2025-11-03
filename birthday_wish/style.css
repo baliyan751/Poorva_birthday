@@ -1,0 +1,398 @@
+/* Basic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html,
+body,
+#stage {
+    height: 100%
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(180deg, #111 0%, #2b1b3a 100%);
+    color: #fff;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Overlay intro */
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto
+}
+
+.modal {
+    background: linear-gradient(180deg, #fff, #f8f8f8);
+    color: #111;
+    padding: 28px;
+    border-radius: 12px;
+    width: min(720px, 92%);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4)
+}
+
+.modal h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    margin-bottom: 6px
+}
+
+.modal p {
+    margin-bottom: 16px;
+    color: #333
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center
+}
+
+.btn {
+    background: #ff5f8d;
+    border: none;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(255, 95, 141, .18)
+}
+
+.btn.small {
+    background: #6b7280;
+    padding: 8px 10px
+}
+
+.btn:active {
+    transform: translateY(2px)
+}
+
+/* Stage / scenes */
+.stage {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.scene {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .8s, transform .8s
+}
+
+.scene.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.98)
+}
+
+/* Envelope */
+.envelopeWrapper {
+    width: 420px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.envelope {
+    width: 360px;
+    height: 220px;
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+    overflow: visible
+}
+
+.envelope .flap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -38px;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-left: 180px solid transparent;
+    border-right: 180px solid transparent;
+    border-bottom: 60px solid #ff5f8d;
+    transform-origin: center top;
+    transition: transform .9s cubic-bezier(.2, .9, .3, 1);
+    border-radius: 6px;
+}
+
+.envelope .card {
+    position: absolute;
+    inset: 18px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #fff, #fff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transform-origin: center;
+    transition: transform .9s cubic-bezier(.2, .9, .3, 1)
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg) translateY(-22px)
+}
+
+.envelope.open .card {
+    transform: translateY(-34px)
+}
+
+/* Letter pages */
+.letterContainer {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px
+}
+
+.letter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .8s, transform .9s;
+    opacity: 0;
+    transform: translateY(18px);
+    border-radius: 18px;
+    overflow: hidden
+}
+
+.letter.active {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 5
+}
+
+.letter .pageInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center
+}
+
+.letter[data-bg] {
+    background: linear-gradient(120deg, rgba(0, 0, 0, .45), rgba(0, 0, 0, .15)), url('c:\Users\HP\OneDrive\Pictures\Image 04_74f40498.jpg, c:\Users\HP\OneDrive\Pictures\Snapchat-458217630.jpg, c:\Users\HP\OneDrive\Pictures\Snapchat-991467807.jpg c:\Users\HP\OneDrive\Pictures\Snapchat-1124031030.jpg') center/cover no-repeat
+}
+
+/* each page will get its bg via JS using data-bg attribute */
+
+.cake {
+    width: 190px;
+    margin: 10px 0;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .4))
+}
+
+.zoomIn {
+    animation: zoomIn .9s ease both
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(.6);
+        opacity: 0
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+/* Balloons */
+.balloons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60%;
+    pointer-events: none;
+    overflow: hidden
+}
+
+.balloon {
+    position: absolute;
+    bottom: -140px;
+    width: 60px;
+    height: 80px;
+    border-radius: 50% 50% 50% 50%;
+    background: linear-gradient(180deg, #ff9aa2, #ff6b81);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+    animation: rise 8s linear infinite;
+    opacity: 0.95
+}
+
+.balloon:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -18px;
+    width: 4px;
+    height: 32px;
+    background: #fff;
+    opacity: .6;
+    border-radius: 2px
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0)
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(15deg)
+    }
+}
+
+/* Typing */
+.typewriter {
+    font-size: 20px;
+    max-width: 780px;
+    text-align: center;
+    padding: 12px;
+    color: #fff
+}
+
+.finalHeading {
+    font-family: 'Great Vibes', cursive;
+    font-size: 44px;
+    margin-bottom: 12px
+}
+
+.finalInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px
+}
+
+.finalText {
+    max-width: 800px;
+    text-align: center;
+    margin-top: 14px;
+    font-size: 18px
+}
+
+/* party popper */
+.popper {
+    width: 110px;
+    opacity: 0;
+    transform: translateY(30px) rotate(-10deg);
+    transition: all .8s
+}
+
+.popper.left {
+    transform-origin: left bottom
+}
+
+.popper.right {
+    transform-origin: right bottom
+}
+
+/* Confetti canvas */
+#confettiCanvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 60
+}
+
+/* animations */
+.fadeIn {
+    animation: fadeIn .8s both
+}
+
+.fadeInUp {
+    animation: fadeInUp .8s both
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+/* responsive */
+@media (max-width:720px) {
+    .envelopeWrapper {
+        width: 320px;
+        height: 200px
+    }
+
+    .cake {
+        width: 130px
+    }
+
+    .modal h2 {
+        font-size: 28px
+    }
+}

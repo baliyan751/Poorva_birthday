@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Birthday Greeting — Poorva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <audio id="bg-music" loop>
+        <!-- Replace with your own music file: place music.mp3 in the same folder and update src -->
+        <source src="C:\Users\HP\Downloads\Maula Mere Maula Instrumental Ringtone Download.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="overlay" class="overlay show">
+        <div class="modal fadeIn">
+            <h2>Something special for you is inside this.</h2>
+            <p>Click <strong>Enter</strong> to see that special thing.</p>
+            <div class="controls">
+                <button id="startBtn" class="btn">Enter</button>
+                <button id="musicToggle" class="btn small">Play Music</button>
+            </div>
+        </div>
+    </div>
+
+    <main id="stage" class="stage">
+        <!-- Envelope Scene -->
+        <section id="envelopeScene" class="scene">
+            <div class="envelopeWrapper fadeInUp">
+                <div class="envelope" id="envelope">
+                    <div class="flap" id="flap"></div>
+                    <div class="card" id="card">
+                        <p class="card-text">Just one more step and a small gift from a poor guy will be shown to you.
+                        </p>
+                        <button id="openLetterBtn" class="btn">Open Letter</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Letter Pages -->
+        <section id="letterScene" class="scene hidden">
+            <div class="letterContainer">
+                <!-- Page 1 -->
+                <article class="letter page active" data-bg="C:\Users\HP\OneDrive\Pictures\Image 04_74f40498.jpg"
+                    id="page1">
+                    <div class="pageInner">
+                        <div class="balloons" id="balloons1"></div>
+                        <img src="c:\Users\HP\Downloads\ChatGPT Image Nov 3, 2025, 10_39_32 PM.png" alt="Cake"
+                            class="cake zoomIn" id="cake1">
+                        <div class="letterText">
+                            <p id="type1" class="typewriter"></p>
+                            <button class="btn nextBtn" data-next="page2">Enter</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Page 2 -->
+                <article class="letter page" data-bg="C:\Users\HP\OneDrive\Pictures\Snapchat-1124031030.jpg" id="page2">
+                    <div class="pageInner">
+                        <div class="balloons" id="balloons2"></div>
+                        <img src="c:\Users\HP\OneDrive\Desktop\HTML\birthday-greeting\images (1).jpg" alt="Cake"
+                            class="cake zoomIn" id="cake2">
+                        <div class="letterText">
+                            <p id="type2" class="typewriter"></p>
+                            <button class="btn nextBtn" data-next="page3">Enter</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Page 3 -->
+                <article class="letter page" data-bg="C:\Users\HP\OneDrive\Pictures\Snapchat-991467807.jpg" id="page3">
+                    <div class="pageInner">
+                        <div class="balloons" id="balloons3"></div>
+                        <img src="c:\Users\HP\OneDrive\Pictures\Videoshot_20251103_223224.jpg" alt="Cake"
+                            class="cake zoomIn" id="cake3">
+
+                        <div class="letterText">
+                            <p id="type3" class="typewriter"></p>
+                            <button class="btn nextBtn" data-next="final">Enter</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Final Page -->
+                <article class="letter page" id="final">
+                    <div class="pageInner finalInner">
+                        <h1 class="finalHeading">Dear Poorva, Wishing you the Happiest Birthday!</h1>
+                        <div class="partyArea">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-458217630.jpg" class="popper top left"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Picsart_25-11-01_22-17-28-513.jpg"
+                                class=" popper top right" alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-1375124475.jpg" class="popper bottom left"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\IMG_20251102_001133.jpg" class="popper bottom right"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Image 04_74f40498.jpg" class="popper bottom right"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-991467807.jpg" class="popper bottom left"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-1094163654.jpg" class=" popper top right"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-1612097422.jpg" class="popper top left"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-25616810.jpg" class="popper top left"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-1124031030.jpg" class=" popper top right"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Videoshot_20251101_220230.jpg"
+                                class="popper bottom left" alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-1646659339.jpg" class="popper bottom right"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-1814078289.jpg" class="popper bottom right"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-688055016.jpg" class="popper bottom left"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-553123374.jpg" class=" popper top right"
+                                alt="">
+                            <img src="c:\Users\HP\OneDrive\Pictures\Snapchat-684946320.jpg" class="popper top left"
+                                alt="">
+                        </div>
+                        <p id="finalText" class="typewriter finalText"></p>
+                        <button class="btn" id="replay">Replay</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
