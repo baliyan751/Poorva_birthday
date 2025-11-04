@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pages.forEach(p => {
         const bg = p.dataset.bg;
         if (bg) {
-            p.querySelector('.pageInner').style.backgroundImage = `linear-gradient(120deg, rgba(239, 228, 228, 0.45), rgba(243, 237, 237, 0.15)), url('bg1 c:\Users\HP\OneDrive\Pictures\Image 04_74f40498.jpg,bg2 c:\Users\HP\OneDrive\Pictures\Snapchat-458217630.jpg,bg3 c:\Users\HP\OneDrive\Pictures\Snapchat-991467807.jpg ,c:\Users\HP\OneDrive\Pictures\Snapchat-1124031030.jpg,c:\Users\HP\OneDrive\Desktop\HTML\birthday-greeting\Birthday_Chocolate_Dripping_cake.webp,c:\Users\HP\OneDrive\Desktop\HTML\birthday-greeting\images.jpg${bg}')`;
+            p.querySelector('.pageInner').style.backgroundImage = `linear-gradient(120deg, rgba(239, 228, 228, 0.45), rgba(243, 237, 237, 0.15)), url('bg1 Image 04_74f40498.jpg,bg2 Snapchat-458217630.jpg,bg3 Snapchat-991467807.jpg ,Snapchat-1124031030.jpg,Birthday_Chocolate_Dripping_cake.webp,images.jpg${bg}')`;
         }
     });
 
@@ -241,3 +241,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
